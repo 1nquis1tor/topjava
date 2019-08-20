@@ -13,6 +13,7 @@ public class UserMeal {
         this.dateTime = dateTime;
         this.description = description;
         this.calories = calories;
+        System.out.println("");
     }
 
     public LocalDateTime getDateTime() {
