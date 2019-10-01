@@ -43,14 +43,8 @@ public class UserMealsUtil {
         List<UserMealWithExceed> result= new ArrayList<>();
 
         List<UserMeal> meal=mealList.stream().filter((m)-> ((m.getDateTime().toLocalTime().isAfter(startTime)) && (m.getDateTime().toLocalTime().isBefore(endTime)))).collect(Collectors.toList());
-        for(UserMeal m: meal)
-            result.add(new UserMealWithExceed(m.getDateTime(), m.getDescription(), m.getCalories(),isExceed(mealList, m.getDateTime(), caloriesPerDay)));
+        mealList.stream().filter((m)-> ((m.getDateTime().toLocalTime().isAfter(startTime)) && (m.getDateTime().toLocalTime().isBefore(endTime)))).forEach(m-> result.add(new UserMealWithExceed(m.getDateTime(), m.getDescription(), m.getCalories(),isExceed(mealList, m.getDateTime(), caloriesPerDay))));
 
-
-       // for (UserMeal meal: mealList) {
-         //   if((meal.getDateTime().toLocalTime().isAfter(startTime)) && (meal.getDateTime().toLocalTime().isBefore(endTime)))
-           //    result.add(new UserMealWithExceed(meal.getDateTime(), meal.getDescription(), meal.getCalories(),isExceed(mealList, meal.getDateTime(), caloriesPerDay)));
-       // }
         return result;
     }
 }
