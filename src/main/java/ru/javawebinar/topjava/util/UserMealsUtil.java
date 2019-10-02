@@ -35,7 +35,7 @@ public class UserMealsUtil {
             if (meal.getDateTime().getDayOfYear()==localDateTime.getDayOfYear())
                 caloriesSumm+=meal.getCalories();
         }
-        return caloriesPerDay<caloriesSumm?true:false;
+        return caloriesPerDay<caloriesSumm;
     }
 
     public static List<UserMealWithExceed>  getFilteredWithExceeded(List<UserMeal> mealList, LocalTime startTime, LocalTime endTime, int caloriesPerDay) {
